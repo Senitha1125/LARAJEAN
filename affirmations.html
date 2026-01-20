@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Main Character Mood</title>
+  <link rel="stylesheet" href="css/affirmations.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="mood-screen" id="moodScreen">
+  <h1>What’s your mood today?</h1>
+
+  <div class="mood-options">
+    <div class="mood-card lover" onclick="selectMood('lover')">💗 Lover</div>
+    <div class="mood-card reputation" onclick="selectMood('reputation')">🖤 Reputation</div>
+    <div class="mood-card serene" onclick="selectMood('serene')">🌙 Serene</div>
+  </div>
+</div>
+
+<div class="cards-screen hidden" id="cardsScreen">
+  <h2 id="moodTitle"></h2>
+  <div class="card-container" id="cardContainer"></div>
+</div>
+
+<script>
+const quotes = {
+  lover: [
+    "She is loved without having to ask.",
+    "Soft heart, gentle power.",
+    "Love flows to her naturally.",
+    "She is warmth in human form.",
+    "Her smile feels like home."
+  ],
+  reputation: [
+    "She doesn’t chase. She attracts.",
+    "Unbothered, unstoppable, unforgettable.",
+    "She is the standard.",
+    "Power looks soft on her.",
+    "She knows her worth."
+  ],
+  serene: [
+    "She is at peace with becoming.",
+    "Calm is her superpower.",
+    "Everything flows gently to her.",
+    "Stillness suits her beautifully.",
+    "She trusts the timing of her life."
+  ]
+};
+
+function selectMood(mood) {
+  document.getElementById("moodScreen").classList.add("hidden");
+  document.getElementById("cardsScreen").classList.remove("hidden");
+
+  document.getElementById("moodTitle").innerText = mood.toUpperCase() + " ERA ✨";
+
+  const selected = quotes[mood].sort(() => 0.5 - Math.random()).slice(0, 3);
+  const container = document.getElementById("cardContainer");
+  container.innerHTML = "";
+
+  selected.forEach(q => {
+    container.innerHTML += `
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="front">Open 💌</div>
+          <div class="back">${q}</div>
+        </div>
+      </div>
+    `;
+  });
+}
+</script>
+
+</body>
+</html>

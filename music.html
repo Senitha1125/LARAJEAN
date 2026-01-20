@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Choose Your Era</title>
+  <link rel="stylesheet" href="css/music.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h1 class="title">Choose Your Era 🌙</h1>
+
+<div class="era-container">
+
+  <div class="era-card lover" onclick="playMusic()">
+    <h2>Lover 💗</h2>
+    <p>Soft • Romantic • Warm</p>
+    <button>Play</button>
+  </div>
+
+  <div class="era-card reputation" onclick="playMusic()">
+    <h2>Reputation 🖤</h2>
+    <p>Bold • Powerful • Unbothered</p>
+    <button>Play</button>
+  </div>
+
+  <div class="era-card serene" onclick="playMusic()">
+    <h2>Serene 🌙</h2>
+    <p>Calm • Peaceful • Night</p>
+    <button>Play</button>
+  </div>
+
+</div>
+
+<audio id="audio" src="songs/opalite.mp3"></audio>
+
+<script>
+function playMusic() {
+  const audio = document.getElementById("audio");
+  audio.paused ? audio.play() : audio.pause();
+}
+</script>
+
+</body>
+</html>
