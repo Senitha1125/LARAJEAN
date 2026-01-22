@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bestie AI 💗</title>
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">
+        Bestie AI 💬
+    </div>
+
+    <div class="chat-body" id="chatBody">
+        <div class="bot-message">Hey pookie 🫶 How are you feeling today?</div>
+    </div>
+
+    <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Type here, bestie...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+function sendMessage() {
+    const input = document.getElementById("userInput");
+    const message = input.value.trim();
+    if (message === "") return;
+
+    const chatBody = document.getElementById("chatBody");
+
+    const userDiv = document.createElement("div");
+    userDiv.className = "user-message";
+    userDiv.innerText = message;
+    chatBody.appendChild(userDiv);
+
+    input.value = "";
+
+    setTimeout(() => {
+        const botDiv = document.createElement("div");
+        botDiv.className = "bot-message";
+        botDiv.innerText = "I’m always here for you 💗 Tell me more…";
+        chatBody.appendChild(botDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }, 800);
+}
+</script>
+
+</body>
+</html>
