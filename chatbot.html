@@ -24,29 +24,59 @@
 </div>
 
 <script>
+function getBotReply(message) {
+    message = message.toLowerCase();
+
+    if (message.includes("sad") || message.includes("cry") || message.includes("down")) {
+        return "Oh no bestie 🥺 come here 🫂 you’re stronger than you think. I’m with you.";
+    } 
+    else if (message.includes("happy") || message.includes("excited")) {
+        return "YAYYY I love this energy for you 💃✨ keep shining, main character!";
+    } 
+    else if (message.includes("tired") || message.includes("sleep")) {
+        return "Aww you need rest, not pressure 😴 drink some water and take it slow okay?";
+    } 
+    else if (message.includes("angry") || message.includes("mad")) {
+        return "Deep breaths bestie 🖤 you’re allowed to feel, but don’t let it steal your peace.";
+    } 
+    else {
+        return "Tell me more… I’m listening 🫶";
+    }
+}
+
 function sendMessage() {
     const input = document.getElementById("userInput");
     const message = input.value.trim();
     if (message === "") return;
 
     const chatBody = document.getElementById("chatBody");
+    const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
 
     const userDiv = document.createElement("div");
     userDiv.className = "user-message";
-    userDiv.innerText = message;
+    userDiv.innerHTML = `<span>${message}</span><small>${time}</small>`;
     chatBody.appendChild(userDiv);
 
     input.value = "";
 
+    const typing = document.createElement("div");
+    typing.className = "typing";
+    typing.innerText = "Bestie is typing...";
+    chatBody.appendChild(typing);
+    chatBody.scrollTop = chatBody.scrollHeight;
+
     setTimeout(() => {
+        typing.remove();
         const botDiv = document.createElement("div");
         botDiv.className = "bot-message";
-        botDiv.innerText = "I’m always here for you 💗 Tell me more…";
+        const reply = getBotReply(message);
+        botDiv.innerHTML = `<span>${reply}</span><small>${time}</small>`;
         chatBody.appendChild(botDiv);
         chatBody.scrollTop = chatBody.scrollHeight;
-    }, 800);
+    }, 1200);
 }
 </script>
+
 
 </body>
 </html>

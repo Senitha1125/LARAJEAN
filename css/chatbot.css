@@ -82,3 +82,39 @@ body {
     color: white;
     cursor: pointer;
 }
+
+.typing {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.bot-message span,
+.user-message span {
+    display: block;
+}
+
+.bot-message small,
+.user-message small {
+    font-size: 10px;
+    color: #777;
+    margin-top: 4px;
+    display: block;
+}
+
+.bot-message,
+.user-message {
+    animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
