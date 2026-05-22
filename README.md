@@ -23,16 +23,6 @@ A soft, clean-girl, romcom-inspired website with an AI Bestie chatbot and mood-b
   - Personalized responses
   - Mood-based music & affirmation recommendation
 
-## 🧠 Future ML Plan
-
-This project will be converted into an:
-**Emotion-Aware Virtual Best Friend using NLP & Machine Learning**
-
-Pipeline:
-1. User types how they feel
-2. ML model predicts emotion (Sentiment Analysis)
-3. Chatbot responds accordingly
-4. UI theme + music + affirmations adapt
 
 ## 🛠 Tech Stack
 
@@ -41,7 +31,4 @@ Pipeline:
 - Scikit-learn / NLP – upcoming
 - Git & GitHub
 
-## 👩‍💻 Author
 
-Built with 💗 by Senitha Velmurugan  
-(Main Character Energy Only ✨)
